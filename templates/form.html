@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block stylesheet %}
+<style>
+</style>
+{% endblock %}
+
+{% block script %}
+<script>
+    $('input[type=range]').on('input', function () {
+        $(this).trigger('change');
+    });
+
+    $("#inputRange").change(function () {
+        $("#inputLabel").html($("#inputRange").val());
+    });
+
+    $("#btnEnable").click(function () {
+        $("#fieldset").attr("disabled", null);
+    })
+
+    $("#btnDisable").click(function () {
+        $("#fieldset").attr("disabled", "disabled");
+    })
+
+    //======================================================================
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+{% endblock %}
+
+{% block content %}
+<div>
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button id="btnEnable" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
+            title="Tooltip on top">Enable</button>
+        <button id="btnDisable" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom"
+            title="Tooltip on bottom">Disable</button>
+    </div>
+    <hr />
+    <form action="/form" method="POST">
+        <fieldset id="fieldset">
+            <div class="form-group">
+                <label for="inputXValue">X Value</label>
+                <input type="text" class="form-control" id="inputXValue" name="inputXValue">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </fieldset>
+    </form>
+    <hr />
+    <div>
+        <ul class="list-group">
+            {% for input in inputs %}
+            <li class="list-group-item">{{ input }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
