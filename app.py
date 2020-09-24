@@ -50,8 +50,8 @@ def form():
         yValue = weight[0] * float(xValue) + bias[0]
 
         inputs.clear()
-        inputs.append(xValue)
-        inputs.append(yValue)
+        inputs.append('X : ' + str(xValue))
+        inputs.append('Y : ' + str(yValue))
 
         print("{0} {1}".format(xValue, yValue))
     else:

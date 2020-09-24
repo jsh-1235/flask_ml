@@ -42,8 +42,8 @@
     <form action="/form" method="POST">
         <fieldset id="fieldset">
             <div class="form-group">
-                <label for="inputXValue">X Value</label>
-                <input type="text" class="form-control" id="inputXValue" name="inputXValue">
+                <label for="inputXValue">Price</label>
+                <input type="number" min="-100" max="100" step="0.01" value="0" class="form-control" id="inputXValue" name="inputXValue">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </fieldset>
